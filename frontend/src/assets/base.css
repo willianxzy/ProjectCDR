@@ -62,8 +62,8 @@ body {
   min-height: 94vh;
   min-width: 83rem;
   overflow-x: hidden;
-  color: var(--vt-c-black-mute);
-  background-image: linear-gradient(to left, blue, black 90%);
+  color: var(--color-text);
+  background: var(--color-background-mute);
   transition:
     color 0.5s,
     background-color 0.5s;
