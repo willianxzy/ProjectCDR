@@ -4,6 +4,6 @@ import TelaInicial from "../components/TelaInicial.vue";
 
 <template>
   <main>   
-    <TelaInicial msg="Sys" msg2="VENDAS "/>
+    <TelaInicial msg="Produtos" msg2="Caseiros"/>
   </main>
 </template>

@@ -14,15 +14,15 @@ defineProps({
 <template>
   <div>
     <h1 class="cor">{{ msg }}</h1>
-    <h2 >{{ msg2 }}</h2>
-    <div><img src="../assets/carrinho.png" alt=""></div>
+    <h2 class="cor">{{ msg2 }}</h2>
+    <div><img src="../assets/LogoCDR.png" alt=""></div>
     
   </div>
 </template>
 
 <style scoped>
 .cor {
-  color: rgb(255, 174, 0)
+  color: rgb(0, 0, 0)
 }
 img{
   margin: auto;
