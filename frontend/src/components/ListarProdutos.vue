@@ -29,6 +29,7 @@
           <th scope="col">Quantidade</th>
           <th scope="col">Preço</th>
           <th scope="col">Ativo</th>
+          <th scope="col">Imagem</th>
           <th scope="col" class="d-flex justify-content-end">Ações</th>
         </tr>
       </thead>
@@ -48,6 +49,9 @@
           </td>
           <td>
             {{ produto.ativo }}
+          </td>
+          <td>
+            <img width="100px" height="200px" :src="getImagemUrl(produto.imagemProduto)" alt="Produto" v-if="produto.imagemProduto">
           </td>
           <td class="d-flex justify-content-end">
             <button
@@ -177,6 +181,9 @@ export default {
     irPara(pagina) {
       this.pageNumber = pagina;
       this.buscarProdutos();
+    },
+    getImagemUrl(imagemProduto) {
+      return `data:image/jpeg;base64,${imagemProduto}`;
     },
   },
   mounted() {
