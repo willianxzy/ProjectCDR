@@ -9,12 +9,12 @@ import { RouterLink, RouterView } from "vue-router";
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">Sobre</RouterLink>
-        <RouterLink to="/estados">Estados</RouterLink>
-        <RouterLink to="/municipios">Municípios</RouterLink>
         <RouterLink to="/produtos">Produtos</RouterLink>
+        <!--<RouterLink to="/municipios">Municípios</RouterLink>
+        <RouterLink to="/estados">Estados</RouterLink>
         <RouterLink to="/formas-pagamento">Formas de Pagamento</RouterLink>
         <RouterLink to="/Clientes">Clientes</RouterLink>
-        <RouterLink to="/pedidos">Pedidos</RouterLink>
+        <RouterLink to="/pedidos">Pedidos</RouterLink>-->
       </nav>
     </div>
   </header>
@@ -29,7 +29,9 @@ import { RouterLink, RouterView } from "vue-router";
         <p>&copy; 2024 Sítio Ana Júlia. Todos os direitos reservados.</p>
       </div>
       <div class="footer-right">
-        <p> Contato:  <a href="https://api.whatsapp.com/send/?phone=%2B5527995839399&text&type=phone_number&app_absent=0">(27) 99583-9399 </a> | email@exemplo.com </p>
+        <p> Contato:
+          <a href="https://api.whatsapp.com/send/?phone=%2B5527995839399&text&type=phone_number&app_absent=0" target="_blank" class="contact-link"><i class="bi bi-whatsapp">(27) 99583-9399</i></a>
+        | <a href="https://www.instagram.com/canto.da.roca/" target="_blank" class="contact-link"><i class="bi bi-instagram">@canto.da.roca</i></a></p>
       </div>
     </div>
   </footer>
@@ -40,8 +42,9 @@ img {
   width: 175px;
   height: 175px;
   margin: auto;
-  margin-left: 10px;
+  margin-left: 100px;
   display: inline-flex;
+  border-radius: 100%;
 }
 
 .header {
@@ -109,13 +112,6 @@ nav a:first-of-type {
   background-color: #426B1F;
 }
 
-.footer-content {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .footer p {
   font-size: 15px;
   font-family: Inter;
@@ -127,9 +123,59 @@ nav a:first-of-type {
   float: left;
 }
 
-@media (min-width: 1024px) {
+.footer-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-right a {
+
+  border-radius: 5px;
+  padding: 2px;
+  color: white;
+}
+
+.footer-right p{
+  font-size: 18px;
+}
+
+.bi.bi-whatsapp::before {
+  margin-right: 3px;
+}
+
+.bi.bi-instagram::before {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.contact-link {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-link:hover {
+    background-color: #fff;
+    color: #4CAF50;
+}
+
+.contact-link i {
+    margin-right: 5px;
+}
+
+@media (max-width: 1024px) {
   .logo {
     margin: 0 2rem 0 0;
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
   }
 }
 </style>
