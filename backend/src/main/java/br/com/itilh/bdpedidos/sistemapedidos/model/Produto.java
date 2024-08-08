@@ -42,4 +42,6 @@ public class Produto {
     @Column(name = "bo_ativo")
     private Boolean ativo;
 
+    @Column(name = "product_img")
+    private byte[] imagemProduto;
 }
