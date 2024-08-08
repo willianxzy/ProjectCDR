@@ -19,7 +19,7 @@ public interface ProdutoRepository extends JpaRepository<Produto, BigInteger> {
     List<Produto> findByDescricaoEndingWithIgnoreCase(String descricao);
     List<Produto> findByDescricaoContainingIgnoreCase(String descricao);
 
-    @Query("FROM FormaPagamento e WHERE e.descricao like %?1")
+    @Query("FROM Produto e WHERE e.descricao like %?1")
     List<Produto> findByMinhaQuery(String descricao);
 
     @Override
