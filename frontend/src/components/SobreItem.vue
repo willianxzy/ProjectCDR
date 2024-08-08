@@ -22,13 +22,12 @@
 }
 
 h3 {
-  text-align: center;
+  text-align: left;
 
   font-size: 50px;
   font-weight: 500;
   font-family: serif;
 
-  margin-bottom: 1rem;
   color: black;
 }
 
