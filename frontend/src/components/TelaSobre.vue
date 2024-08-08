@@ -9,7 +9,7 @@ import DocumentationIcon from "./icons/IconDocumentation.vue";
     <template #icon>
       <DocumentationIcon />
     </template>
-    <template #heading>Sobre Nós</template>
+    <template #heading><strong>Sobre Nós</strong></template>
     <div class="content">
       <div class="content-left">
         <p>
