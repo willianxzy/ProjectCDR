@@ -1,14 +1,12 @@
 <script setup>
-import ListarProduto from '../components/ListarProduto.vue'
+import ListarProdutos from '../components/ListarProdutos.vue'
 </script>
 
 <template>
  <main>
-   <ListarProduto/>
+   <ListarProdutos/>
  </main>
 </template>
 
 <style scoped>
-  main{
-  }
 </style>

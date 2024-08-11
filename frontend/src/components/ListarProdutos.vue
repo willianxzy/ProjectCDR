@@ -4,98 +4,23 @@
       <div class="col-10">
         <h3>PRODUTOS</h3>
       </div>
-      <div class="col-2 d-flex justify-content-end">
-        <button v-if="!formVisible" @click="novoProduto" class="btn btn-success">
-          <i class="bi bi-clipboard-plus"></i> Novo
-        </button>
-      </div>
-      <div class="row">
-        <div>
-          <FormProduto
-            v-if="formVisible"
-            :propsProduto="produtoEscolhido"
-            @cancelar="limpar"
-            @salvar_produto="buscarProdutos"
-          />
-        </div>
-      </div>
     </div>
-
-    <table class="table table-dark table-striped" v-if="!formVisible">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Descrição</th>
-          <th scope="col">Quantidade</th>
-          <th scope="col">Preço</th>
-          <th scope="col">Ativo</th>
-          <th scope="col">Imagem</th>
-          <th scope="col" class="d-flex justify-content-end">Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="produto in listaProdutos" :key="produto.id" scope="row">
-          <th>
-            {{ produto.id }}
-          </th>
-          <td>
-            {{ produto.descricao }}
-          </td>
-          <td>
-            {{ produto.quantidadeEstoque }}
-          </td>
-          <td>
-            R$ {{ produto.precoUnidadeAtual }}
-          </td>
-          <td>
-            {{ produto.ativo }}
-          </td>
-          <td>
-            <img width="100px" height="200px" :src="getImagemUrl(produto.imagemProduto)" alt="Produto" v-if="produto.imagemProduto">
-          </td>
-          <td class="d-flex justify-content-end">
-            <button
-              class="btn btn-btn btn-primary m-2"
-              @click="alterarProduto(produto)"
-            >
-              <i class="bi bi-clipboard-pulse"></i> Alterar
-            </button>
-
-            <button
-              class="btn btn-outline-danger m-2"
-              @click="excluirProduto(produto.id)"
-            >
-              <i class="bi bi-clipboard2-minus"></i> Excluir
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
+  <CardProduto></CardProduto>
   <div v-if="!formVisible">
     <hr />
     <div class="container">
       <div class="row d-flex justify-content-center">
         <div class="col-auto">
 
-          <button
-            v-for="pagina in totalPages"
-            :key="pagina"
-            @click.prevent="irPara(pagina)"
-            class="btn btn-light ms-1"
-          >
+          <button v-for="pagina in totalPages" :key="pagina" @click.prevent="irPara(pagina)" class="btn btn-light ms-1">
             {{ pagina }}
           </button>
 
 
         </div>
         <div class="col-auto">
-          <input
-            type="text"
-            v-model="pageNumber"
-            placeholder="Número da pagina"
-            class="form-control w-25"
-          />
+          <input type="text" v-model="pageNumber" placeholder="Número da pagina" class="form-control w-25" />
         </div>
         <div class="col-auto">
           <select v-model="pageSize" class="form-select">
@@ -130,11 +55,11 @@
 
 
 <script>
-import FormProduto from "./FormProduto.vue";
+import CardProduto from "./CardProduto.vue";
 import axios from "axios";
 export default {
   components: {
-    FormProduto,
+    CardProduto,
   },
   data() {
     return {
