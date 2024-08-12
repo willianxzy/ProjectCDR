@@ -1,15 +1,17 @@
 <template>
-  <div v-for="produto in listaProdutos" :key="produto.id" scope="row">
-    <div class="card">
-      <img :src="getImagemUrl(produto.imagemProduto)" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title"> {{ produto.descricao }}</h5>
-        <p class="card-text">
-          Valor: R$ {{ produto.precoUnidadeAtual }}
-          <br>
-          Quantidade Disponível: {{ produto.quantidadeEstoque }}
-        </p>
-        <a href="" class="btn btn-primary">Adicione ao Carrinho</a>
+   <div class="row">
+    <div v-for="produto in listaProdutos" :key="produto.id" class="col-md-4 mb-3">
+      <div class="card h-100">
+        <img :src="getImagemUrl(produto.imagemProduto)" class="card-img-top" width="100px" height="300px"/>
+        <div class="card-body">
+          <h5 class="card-title">{{ produto.descricao }}</h5>
+          <p class="card-text">
+            Valor: R$ {{ produto.precoUnidadeAtual }}
+            <br />
+            Quantidade Disponível: {{ produto.quantidadeEstoque }}
+          </p>
+          <a href="" class="btn btn-primary">Adicione ao Carrinho</a>
+        </div>
       </div>
     </div>
   </div>
@@ -19,8 +21,7 @@
 <script>
 import axios from "axios";
 export default {
-  components: {
-  },
+  components: {},
   data() {
     return {
       listaProdutos: [],
@@ -57,7 +58,6 @@ export default {
 
 <style scoped>
 .card {
-  width: 15rem;
-  justify-content: space-between;
+  width: 18rem;
 }
 </style>
