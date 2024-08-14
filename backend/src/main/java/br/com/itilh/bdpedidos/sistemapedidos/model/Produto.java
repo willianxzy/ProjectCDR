@@ -33,14 +33,11 @@ public class Produto {
     @Column(name = "tx_descricao")
     private String descricao;
 
-    @Column(name = "dbl_quantidade_estoque")
-    private Double quantidadeEstoque;
-
     @Column(name = "nu_preco_unidade_atual")
     private BigDecimal precoUnidadeAtual;
 
-    @Column(name = "bo_ativo")
-    private Boolean ativo;
+    @Column(name = "tx_informacoes")
+    private String informacoes;
 
     @Column(name = "product_img")
     private byte[] imagemProduto;

@@ -6,21 +6,66 @@
       </div>
     </div>
   </div>
-  <CardProduto></CardProduto>
-  <div v-if="!formVisible">
+
+  <!-- CARD DE EXIBIÇÃO DOS PRODUTOS -->
+  <div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div
+          v-for="produto in listaProdutos"
+          :key="produto.id"
+          class="col-md-4 mb-3"
+        >
+          <div class="card h-100 text-center">
+            <img
+              :src="getImagemUrl(produto.imagemProduto)"
+              class="card-img-top"
+              width="100px"
+              height="300px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ produto.descricao }}</h5>
+              <p class="card-text">
+                Valor: R$ {{ produto.precoUnidadeAtual.toFixed(2) }}
+                <br />
+                {{ produto.informacoes }}
+              </p>
+              <button
+                class="btn btn-primary"
+                type="submit"
+                @click="adicionarAoCarrinho"
+              >
+                Adicione ao Carrinho
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGINAÇÃO E ORDENAÇÃO -->
+  <div>
     <hr />
     <div class="container">
       <div class="row d-flex justify-content-center">
         <div class="col-auto">
-
-          <button v-for="pagina in totalPages" :key="pagina" @click.prevent="irPara(pagina)" class="btn btn-light ms-1">
+          <button
+            v-for="pagina in totalPages"
+            :key="pagina"
+            @click.prevent="irPara(pagina)"
+            class="btn btn-light ms-1"
+          >
             {{ pagina }}
           </button>
-
-
         </div>
         <div class="col-auto">
-          <input type="text" v-model="pageNumber" placeholder="Número da pagina" class="form-control w-25" />
+          <input
+            type="text"
+            v-model="pageNumber"
+            placeholder="Número da pagina"
+            class="form-control w-25"
+          />
         </div>
         <div class="col-auto">
           <select v-model="pageSize" class="form-select">
@@ -55,12 +100,9 @@
 
 
 <script>
-import CardProduto from "./CardProduto.vue";
 import axios from "axios";
 export default {
-  components: {
-    CardProduto,
-  },
+  components: {},
   data() {
     return {
       listaProdutos: [],
@@ -85,7 +127,6 @@ export default {
       console.log(response.data);
       this.listaProdutos = response.data.content;
       this.totalPages = response.data.totalPages;
-      console.log(this.totalPages);
     },
     limpar() {
       this.produtoEscolhido = null;
@@ -99,7 +140,9 @@ export default {
       this.formVisible = true;
     },
     async excluirProduto(id) {
-      const response = await axios.delete(`http://localhost:8080/produto/${id}`);
+      const response = await axios.delete(
+        `http://localhost:8080/produto/${id}`
+      );
       console.log(response.data);
       this.buscarProdutos();
     },
@@ -116,3 +159,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.card {
+  width: 18rem;
+}
+</style>

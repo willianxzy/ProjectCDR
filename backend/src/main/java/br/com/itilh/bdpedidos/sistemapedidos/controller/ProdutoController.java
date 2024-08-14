@@ -86,9 +86,9 @@ public class ProdutoController {
         if(produtoArmazenado.isPresent()){
             //Atribuir nova descrição, quantidadeEstoque, preço e novo modo ativo ao objeto já existente no banco de dados
             produtoArmazenado.get().setDescricao(novosDados.getDescricao());
-            produtoArmazenado.get().setQuantidadeEstoque(novosDados.getQuantidadeEstoque());
+            produtoArmazenado.get().setImagemProduto(novosDados.getImagemProduto());
             produtoArmazenado.get().setPrecoUnidadeAtual(novosDados.getPrecoUnidadeAtual());
-            produtoArmazenado.get().setAtivo(novosDados.getAtivo());
+            produtoArmazenado.get().setInformacoes(novosDados.getInformacoes());
             //
             return repositorio.save(produtoArmazenado.get());
         }        
