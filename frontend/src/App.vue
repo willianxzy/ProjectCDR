@@ -15,7 +15,7 @@ import { RouterLink, RouterView } from "vue-router";
   </header>
 
   <main>
-    <RouterView/>
+    <RouterView></RouterView>
   </main>
 
   <footer class="footer">

@@ -4,25 +4,27 @@
       <div class="col-10">
         <h3>PRODUTOS</h3>
       </div>
+      <div class="col-2 d-flex justify-content-end">
+        <button v-if="!formVisible" @click="formVisible = !formVisible" class="btn btn-success">
+          <i class="bi bi-clipboard-plus"></i> Carrinho ({{ cartCount }})
+        </button>
+      </div>
     </div>
   </div>
+  <CarrinhoProdutos
+      v-if="formVisible"
+      :produto="produtoEscolhido"
+      @cancelar="limpar"
+      @salvar_produto="buscarProdutos"
+    />
 
   <!-- CARD DE EXIBIÇÃO DOS PRODUTOS -->
-  <div>
+  <div v-if="!formVisible">
     <div class="container">
       <div class="row justify-content-center">
-        <div
-          v-for="produto in listaProdutos"
-          :key="produto.id"
-          class="col-md-4 mb-3"
-        >
+        <div v-for="produto in listaProdutos" :key="produto.id" class="col-md-4 mb-3">
           <div class="card h-100 text-center">
-            <img
-              :src="getImagemUrl(produto.imagemProduto)"
-              class="card-img-top"
-              width="100px"
-              height="300px"
-            />
+            <img :src="getImagemUrl(produto.imagemProduto)" class="card-img-top" width="100px" height="300px" />
             <div class="card-body">
               <h5 class="card-title">{{ produto.descricao }}</h5>
               <p class="card-text">
@@ -30,11 +32,7 @@
                 <br />
                 {{ produto.informacoes }}
               </p>
-              <button
-                class="btn btn-primary"
-                type="submit"
-                @click="adicionarAoCarrinho"
-              >
+              <button class="btn btn-primary" @click="adicionarAoCarrinho(produto)">
                 Adicione ao Carrinho
               </button>
             </div>
@@ -45,27 +43,17 @@
   </div>
 
   <!-- PAGINAÇÃO E ORDENAÇÃO -->
-  <div>
+  <div v-if="!formVisible">
     <hr />
     <div class="container">
       <div class="row d-flex justify-content-center">
         <div class="col-auto">
-          <button
-            v-for="pagina in totalPages"
-            :key="pagina"
-            @click.prevent="irPara(pagina)"
-            class="btn btn-light ms-1"
-          >
+          <button v-for="pagina in totalPages" :key="pagina" @click.prevent="irPara(pagina)" class="btn btn-light ms-1">
             {{ pagina }}
           </button>
         </div>
         <div class="col-auto">
-          <input
-            type="text"
-            v-model="pageNumber"
-            placeholder="Número da pagina"
-            class="form-control w-25"
-          />
+          <input type="text" v-model="pageNumber" placeholder="Número da pagina" class="form-control w-25" />
         </div>
         <div class="col-auto">
           <select v-model="pageSize" class="form-select">
@@ -101,8 +89,11 @@
 
 <script>
 import axios from "axios";
+import CarrinhoProdutos from "./CarrinhoProdutos.vue";
 export default {
-  components: {},
+  components: {
+    CarrinhoProdutos
+  },
   data() {
     return {
       listaProdutos: [],
@@ -113,6 +104,8 @@ export default {
       direction: "ASC",
       property: "id",
       totalPages: 0,
+      cartCount: 0,
+      cart: {},
     };
   },
   methods: {
@@ -131,9 +124,8 @@ export default {
     limpar() {
       this.produtoEscolhido = null;
       this.formVisible = !this.formVisible;
-    },
-    novoProduto() {
-      this.formVisible = !this.formVisible;
+      this.cartCount = 0;
+      this.cart = [];
     },
     alterarProduto(produto) {
       this.produtoEscolhido = produto;
@@ -153,6 +145,14 @@ export default {
     getImagemUrl(imagemProduto) {
       return `data:image/jpeg;base64,${imagemProduto}`;
     },
+    adicionarAoCarrinho(produto) {
+    if (!this.cart[produto.id]) {
+      this.cart[produto.id] = produto;
+    }
+    this.cartCount = Object.keys(this.cart).length;
+    this.produtoEscolhido = produto;
+    console.log("Produto adicionado ao carrinho:", produto);
+  },
   },
   mounted() {
     this.buscarProdutos();
