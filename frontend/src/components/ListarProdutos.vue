@@ -13,8 +13,9 @@
   </div>
   <CarrinhoProdutos
       v-if="formVisible"
-      :produto="produtoEscolhido"
+      :produtos="cart"
       @cancelar="limpar"
+      @adicionarMaisItens="voltarAdicionarProdutos"
       @salvar_produto="buscarProdutos"
     />
 
@@ -105,7 +106,7 @@ export default {
       property: "id",
       totalPages: 0,
       cartCount: 0,
-      cart: {},
+      cart: [],
     };
   },
   methods: {
@@ -146,13 +147,16 @@ export default {
       return `data:image/jpeg;base64,${imagemProduto}`;
     },
     adicionarAoCarrinho(produto) {
-    if (!this.cart[produto.id]) {
-      this.cart[produto.id] = produto;
+    const produtoExistente = this.cart.find(item => item.id === produto.id);
+    if (!produtoExistente) {
+      this.cart.push(produto);
     }
-    this.cartCount = Object.keys(this.cart).length;
-    this.produtoEscolhido = produto;
+    this.cartCount = this.cart.length;
     console.log("Produto adicionado ao carrinho:", produto);
-  },
+    },
+    voltarAdicionarProdutos(){
+      this.formVisible = !this.formVisible;
+    }
   },
   mounted() {
     this.buscarProdutos();

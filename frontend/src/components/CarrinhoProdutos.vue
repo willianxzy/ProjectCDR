@@ -2,11 +2,19 @@
   <div class="container">
     <h4 class="p-1 mb-1 bg-success text-white">Itens no Carrinho</h4>
     <hr />
-    <div v-if="produto">
-      <p><strong>Descrição:</strong> {{ produto.imagemProduto }} </p>
+    <div v-if="produtos && produtos.length">
+      <div v-for="produto in produtos" :key="produto.id" class="produto-item">
+        <img
+          :src="getImagemUrl(produto.imagemProduto)"
+          alt="Imagem do produto"
+          class="img-fluid"
+          width="150"
+        />
       <p><strong>Descrição:</strong> {{ produto.descricao }} </p>
       <p><strong>Preço:</strong> R$ {{ produto.precoUnidadeAtual.toFixed(2) }} </p>
       <p><strong>Informações:</strong> {{ produto.informacoes }} </p>
+      <hr>
+    </div>
     </div>
     <div v-else>
       <p>Nenhum produto no carrinho.</p>
@@ -15,7 +23,7 @@
       <button
         class="btn btn-primary m-2"
         type="submit"
-        v-on:click.prevent="salvarProduto"
+        @click.prevent="salvarProduto"
       >
         <i class="bi bi-clipboard2-check"></i>
         Finalizar Pedido
@@ -23,7 +31,15 @@
       <button
         class="btn btn-warning m-2"
         type="submit"
-        v-on:click.prevent="cancelar"
+        @click.prevent="voltar"
+      >
+        <i class="bi bi-arrow-repeat"></i>
+        Continuar Comprando
+      </button>
+      <button
+        class="btn btn-danger m-2"
+        type="submit"
+        @click.prevent="adicionarMaisItens()"
       >
         <i class="bi bi-clipboard2-x"></i>
         Cancelar
@@ -36,10 +52,11 @@
 import axios from "axios";
 export default {
   props: {
-    produto: {
-      type: Object,
-      required: false,
-    },
+    produtos: {
+      type: Array,
+      required: false, 
+      default: () => [] 
+    }
   },
   data() {
     return {
@@ -106,6 +123,12 @@ export default {
       this.ativo = "";
       this.$emit("cancelar", true);
     },
+    getImagemUrl(imagemProduto) {
+      return `data:image/jpeg;base64,${imagemProduto}`;
+    },
+    adicionarMaisItens(){
+      this.$emit("adicionarMaisItens", true);
+    }
   },
   mounted() {
   },
