@@ -1,8 +1,5 @@
 <template>
   <div class="item">
-    <i>
-      <slot name="icon"></slot>
-    </i>
     <div class="details">
       <h3>
         <slot name="heading"></slot>
@@ -24,20 +21,14 @@
   margin-left: 1rem;
 }
 
-i {
-  display: flex;
-  place-items: center;
-  place-content: center;
-  width: 32px;
-  height: 32px;
-  color: var(--color-text);
-}
-
 h3 {
-  font-size: 1.2rem;
+  text-align: left;
+
+  font-size: 50px;
   font-weight: 500;
-  margin-bottom: 0.4rem;
-  color: var(--color-heading);
+  font-family: serif;
+
+  color: black;
 }
 
 @media (min-width: 1024px) {

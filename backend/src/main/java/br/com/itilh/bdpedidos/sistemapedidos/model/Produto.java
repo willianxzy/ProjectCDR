@@ -20,25 +20,25 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
+
 @Entity
 @Table(name = "tb_produtos")
 public class Produto {
 
     @Id
-    @SequenceGenerator(name = "sequencial", sequenceName = "tb_formas_pagamento_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequencial")
+    @SequenceGenerator(name = "produto_id_seq", sequenceName = "tb_produtos_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto_id_seq")
     private BigInteger id;
 
     @Column(name = "tx_descricao")
     private String descricao;
 
-    @Column(name = "dbl_quantidade_estoque")
-    private Double quantidadeEstoque;
-
     @Column(name = "nu_preco_unidade_atual")
     private BigDecimal precoUnidadeAtual;
 
-    @Column(name = "bo_ativo")
-    private Boolean ativo;
+    @Column(name = "tx_informacoes")
+    private String informacoes;
 
+    @Column(name = "product_img")
+    private byte[] imagemProduto;
 }
