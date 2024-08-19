@@ -31,7 +31,7 @@
       <button
         class="btn btn-warning m-2"
         type="submit"
-        @click.prevent="voltar"
+        @click="continuarComprando"
       >
         <i class="bi bi-arrow-repeat"></i>
         Continuar Comprando
@@ -39,7 +39,7 @@
       <button
         class="btn btn-danger m-2"
         type="submit"
-        @click.prevent="adicionarMaisItens()"
+        @click.prevent="cancelar"
       >
         <i class="bi bi-clipboard2-x"></i>
         Cancelar
@@ -126,9 +126,9 @@ export default {
     getImagemUrl(imagemProduto) {
       return `data:image/jpeg;base64,${imagemProduto}`;
     },
-    adicionarMaisItens(){
-      this.$emit("adicionarMaisItens", true);
-    }
+    continuarComprando() {
+      this.$emit("continuar_comprando");
+    },
   },
   mounted() {
   },
