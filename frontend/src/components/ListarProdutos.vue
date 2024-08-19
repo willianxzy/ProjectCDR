@@ -14,6 +14,7 @@
   <CarrinhoProdutos
       v-if="formVisible"
       :produtos="cart"
+      @continuar_comprando="continuarComprando"
       @cancelar="limpar"
       @adicionarMaisItens="voltarAdicionarProdutos"
       @salvar_produto="buscarProdutos"
@@ -154,9 +155,9 @@ export default {
     this.cartCount = this.cart.length;
     console.log("Produto adicionado ao carrinho:", produto);
     },
-    voltarAdicionarProdutos(){
-      this.formVisible = !this.formVisible;
-    }
+    continuarComprando() {
+      this.formVisible = false;
+    },
   },
   mounted() {
     this.buscarProdutos();
