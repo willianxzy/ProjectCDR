@@ -21,22 +21,6 @@
     </div>
     <div class="mb-3 d-flex justify-content-end">
       <button
-        class="btn btn-primary m-2"
-        type="submit"
-        @click.prevent="salvarProduto"
-      >
-        <i class="bi bi-clipboard2-check"></i>
-        Finalizar Pedido
-      </button>
-      <button
-        class="btn btn-warning m-2"
-        type="submit"
-        @click="continuarComprando"
-      >
-        <i class="bi bi-arrow-repeat"></i>
-        Continuar Comprando
-      </button>
-      <button
         class="btn btn-danger m-2"
         type="submit"
         @click.prevent="cancelar"
@@ -44,6 +28,22 @@
         <i class="bi bi-clipboard2-x"></i>
         Cancelar
       </button>
+      <button
+      class="btn btn-warning m-2"
+      type="submit"
+      @click="continuarComprando"
+      >
+      <i class="bi bi-arrow-repeat"></i>
+      Continuar Comprando
+    </button>
+    <button
+      class="btn btn-primary m-2"
+      type="submit"
+      @click.prevent="salvarProduto"
+    >
+      <i class="bi bi-clipboard2-check"></i>
+      Finalizar Pedido
+    </button>
     </div>
   </div>
 </template>
