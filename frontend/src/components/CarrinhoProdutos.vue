@@ -19,8 +19,7 @@
         <input type="text" v-model.number="produto.quantidade" class="form-control text-center" />
         <button class="btn btn-outline-secondary" @click="incrementar(produto)">+</button>
       </div>
-      <p><strong>Total:</strong> R$ {{ (produto.precoUnidadeAtual * produto.quantidade).toFixed(2) }}</p>
-
+      <p><strong>SubTotal:</strong> R$ {{ (produto.precoUnidadeAtual * produto.quantidade).toFixed(2) }}</p>
       <hr>
     </div>
     </div>
