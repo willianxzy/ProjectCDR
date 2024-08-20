@@ -13,6 +13,10 @@
       <p><strong>Descrição:</strong> {{ produto.descricao }} </p>
       <p><strong>Preço:</strong> R$ {{ produto.precoUnidadeAtual.toFixed(2) }} </p>
       <p><strong>Informações:</strong> {{ produto.informacoes }} </p>
+      <label>Quantidade:</label>
+      <input type="number" v-model.number="produto.quantidade" min="1" class="form-control w-25" />
+      <p><strong>Total:</strong> R$ {{ (produto.precoUnidadeAtual * produto.quantidade).toFixed(2) }}</p>
+
       <hr>
     </div>
     </div>
