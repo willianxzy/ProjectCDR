@@ -22,6 +22,7 @@
       <p><strong>SubTotal:</strong> R$ {{ (produto.precoUnidadeAtual * produto.quantidade).toFixed(2) }}</p>
       <hr>
     </div>
+    <p><strong>Total do Pedido:</strong> R$ {{ calcularTotalPedido().toFixed(2) }}</p>
     </div>
     <div v-else>
       <p>Nenhum produto no carrinho.</p>
@@ -133,9 +134,6 @@ export default {
     getImagemUrl(imagemProduto) {
       return `data:image/jpeg;base64,${imagemProduto}`;
     },
-    continuarComprando() {
-      this.$emit("continuar_comprando");
-    },
     incrementar(produto) {
       produto.quantidade += 1;
     },
@@ -143,6 +141,14 @@ export default {
       if (produto.quantidade > 1) {
         produto.quantidade -= 1;
       }
+    },
+    calcularTotalPedido() {
+      return this.produtos.reduce((total, produto) => {
+        return total + (produto.precoUnidadeAtual * produto.quantidade);
+      }, 0);
+    },
+    continuarComprando() {
+      this.$emit("continuar_comprando");
     },
   },
   mounted() {
