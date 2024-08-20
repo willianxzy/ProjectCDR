@@ -12,9 +12,9 @@
         />
       <p><strong>Descrição:</strong> {{ produto.descricao }} </p>
       <p><strong>Preço:</strong> R$ {{ produto.precoUnidadeAtual.toFixed(2) }} </p>
-      <p><strong>Informações:</strong> {{ produto.informacoes }} </p>
-      <label>Quantidade:</label>
-      <input type="number" v-model.number="produto.quantidade" min="1" class="form-control w-25" />
+      <p v-if="produto.informacoes"><strong>Informações:</strong> {{ produto.informacoes }}</p>
+      <label><strong>Quantidade:</strong></label>
+      
       <p><strong>Total:</strong> R$ {{ (produto.precoUnidadeAtual * produto.quantidade).toFixed(2) }}</p>
 
       <hr>
@@ -133,6 +133,7 @@ export default {
     continuarComprando() {
       this.$emit("continuar_comprando");
     },
+    
   },
   mounted() {
   },
@@ -147,5 +148,12 @@ export default {
 <style scoped>
 .container {
   color: black;
+}
+.input-group{
+  max-width: 120px;
+  margin-bottom: 10px;
+}
+.img-fluid {
+  border-radius: 10px;
 }
 </style>
