@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-10">
-        <h3>PRODUTOS</h3>
+        <h3 v-if="!formVisible">PRODUTOS</h3>
       </div>
       <div class="col-2 d-flex justify-content-end">
         <button v-if="!formVisible" @click="formVisible = !formVisible" class="btn btn-success">
@@ -16,7 +16,6 @@
       :produtos="cart"
       @continuar_comprando="continuarComprando"
       @cancelar="limpar"
-      @adicionarMaisItens="voltarAdicionarProdutos"
       @salvar_produto="buscarProdutos"
     />
 
@@ -150,7 +149,9 @@ export default {
     adicionarAoCarrinho(produto) {
     const produtoExistente = this.cart.find(item => item.id === produto.id);
     if (!produtoExistente) {
-      this.cart.push(produto);
+      this.cart.push({ ...produto, quantidade: 1 });
+    }  else {
+      produtoExistente.quantidade += 1;
     }
     this.cartCount = this.cart.length;
     console.log("Produto adicionado ao carrinho:", produto);
