@@ -14,7 +14,11 @@
       <p><strong>Preço:</strong> R$ {{ produto.precoUnidadeAtual.toFixed(2) }} </p>
       <p v-if="produto.informacoes"><strong>Informações:</strong> {{ produto.informacoes }}</p>
       <label><strong>Quantidade:</strong></label>
-      
+      <div class="input-group">
+        <button class="btn btn-outline-secondary" @click="decrementar(produto)">-</button>
+        <input type="text" v-model.number="produto.quantidade" class="form-control text-center" />
+        <button class="btn btn-outline-secondary" @click="incrementar(produto)">+</button>
+      </div>
       <p><strong>Total:</strong> R$ {{ (produto.precoUnidadeAtual * produto.quantidade).toFixed(2) }}</p>
 
       <hr>
@@ -133,7 +137,14 @@ export default {
     continuarComprando() {
       this.$emit("continuar_comprando");
     },
-    
+    incrementar(produto) {
+      produto.quantidade += 1;
+    },
+    decrementar(produto) {
+      if (produto.quantidade > 1) {
+        produto.quantidade -= 1;
+      }
+    },
   },
   mounted() {
   },
