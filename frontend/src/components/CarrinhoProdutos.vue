@@ -20,6 +20,7 @@
         <button class="btn btn-outline-secondary" @click="incrementar(produto)">+</button>
       </div>
       <p><strong>SubTotal:</strong> R$ {{ (produto.precoUnidadeAtual * produto.quantidade).toFixed(2) }}</p>
+      <button @click="removerProduto(produto)" class="btn btn-danger mt-2">Remover</button>
       <hr>
     </div>
     <p><strong>Total do Pedido:</strong> R$ {{ calcularTotalPedido().toFixed(2) }}</p>
@@ -69,7 +70,7 @@ export default {
     produtos: {
       type: Array,
       required: false, 
-      default: () => [] 
+      default: () => []
     }
   },
   data() {
@@ -181,6 +182,9 @@ export default {
     },
     continuarComprando() {
       this.$emit("continuar_comprando");
+    },
+    removerProduto(produto){
+      this.$emit("remover_produto", produto);
     },
   },
   mounted() {
