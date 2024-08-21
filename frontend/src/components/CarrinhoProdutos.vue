@@ -158,17 +158,20 @@ export default {
       this.formularioVisivel = true;
     },
     finalizarPedido(dadosCliente) {
+
+      const tituloPedido = `***** _PEDIDO_ *****`;
+
       const mensagemProdutos = this.produtos.map((produto) => {
         return `Produto: ${produto.descricao}\nQuantidade: ${produto.quantidade}\nSubtotal: R$ ${(
           produto.precoUnidadeAtual * produto.quantidade
-        ).toFixed(2)}`;
+        ).toFixed(2)}\n\n---------------------------------`;
       }).join('\n\n');
 
       const totalPedido = `Total do Pedido: R$ ${this.calcularTotalPedido().toFixed(2)}`;
 
-      const mensagemCliente = `Nome: ${dadosCliente.nome}\nTelefone: ${dadosCliente.telefone}\nEndereço: ${dadosCliente.endereco}\nCidade: ${dadosCliente.cidade}\nCEP: ${dadosCliente.cep}`;
+      const mensagemCliente = `***** _DADOS CLIENTE_ *****\nNome: ${dadosCliente.nome}\nTelefone: ${dadosCliente.telefone}\n\n***** _ENDEREÇO_ *****\nEndereço: ${dadosCliente.endereco}\nCidade: ${dadosCliente.cidade}\nBairro: ${dadosCliente.bairro}\nNúmero: ${dadosCliente.numero}\nReferência: ${dadosCliente.referencia}\nCEP: ${dadosCliente.cep}`;
 
-      const mensagemFinal = `${mensagemCliente}\n\n${mensagemProdutos}\n\n${totalPedido}`;
+      const mensagemFinal = `${mensagemCliente}\n\n${tituloPedido}\n\n${mensagemProdutos}\n\n${totalPedido}`;
 
       const numeroWhatsapp = '5527998270870';
 
