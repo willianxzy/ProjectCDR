@@ -85,6 +85,7 @@
   
   <style scoped>
   .formulario-container {
+    color: black;
     max-width: 500px;
     margin: auto;
     padding: 20px;
