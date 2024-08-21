@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <div v-if="!formularioVisivel">
     <h4 class="p-1 mb-1 bg-success text-white">Itens no Carrinho</h4>
     <hr />
     <div v-if="produtos && produtos.length">
@@ -54,8 +55,10 @@
       Finalizar Pedido
     </button>
     </div>
+    </div>
     <!-- Formulário de Dados do Cliente -->
-    <DadosCliente v-if="formularioVisivel" @dadosCliente="finalizarPedido" @cancelar="formularioVisivel = false" />
+    
+    <DadosCliente v-if="formularioVisivel" @dadosCliente="finalizarPedido" @cancelar="formularioVisivel = false" /> 
   </div>
 </template>
   
