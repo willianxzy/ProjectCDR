@@ -15,6 +15,7 @@
       v-if="formVisible"
       :produtos="cart"
       @continuar_comprando="continuarComprando"
+      @remover_produto="removerProduto"
       @cancelar="limpar"
       @salvar_produto="buscarProdutos"
     />
@@ -155,6 +156,9 @@ export default {
     }
     this.cartCount = this.cart.length;
     console.log("Produto adicionado ao carrinho:", produto);
+    },
+    removerProduto(produto) {
+      this.cart = this.cart.filter(p => p.id !== produto.id);
     },
     continuarComprando() {
       this.formVisible = false;
