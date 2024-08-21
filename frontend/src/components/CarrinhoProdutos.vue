@@ -20,7 +20,7 @@
         <button class="btn btn-outline-secondary" @click="incrementar(produto)">+</button>
       </div>
       <p><strong>SubTotal:</strong> R$ {{ (produto.precoUnidadeAtual * produto.quantidade).toFixed(2) }}</p>
-      <button @click="removerProduto(produto)" class="btn btn-danger mt-2">Remover</button>
+      <button @click="removerProduto(produto)" class="btn btn-danger mt-2"> Remover Item </button>
       <hr>
     </div>
     <p><strong>Total do Pedido:</strong> R$ {{ calcularTotalPedido().toFixed(2) }}</p>
