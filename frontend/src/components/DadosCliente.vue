@@ -21,6 +21,21 @@
           <label for="cidade" class="form-label">Cidade</label>
           <input type="text" id="cidade" v-model="cidade" class="form-control" required />
         </div>
+
+        <div class="mb-3">
+          <label for="bairro" class="form-label">Bairro</label>
+          <input type="text" id="bairro" v-model="bairro" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="numero" class="form-label">Número</label>
+          <input type="text" id="numero" v-model="numero" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="referencia" class="form-label">Referência</label>
+          <input type="text" id="referencia" v-model="referencia" class="form-control"/>
+        </div>
   
         <div class="mb-3">
           <label for="cep" class="form-label">CEP</label>
@@ -41,6 +56,9 @@
         telefone: "",
         endereco: "",
         cidade: "",
+        bairro: "",
+        numero: "",
+        referencia: "",
         cep: ""
       };
     },
@@ -51,6 +69,9 @@
           telefone: this.telefone,
           endereco: this.endereco,
           cidade: this.cidade,
+          bairro: this.bairro,
+          numero: this.numero,
+          referencia: this.referencia,
           cep: this.cep
         };
         this.$emit("dadosCliente", dadosCliente);
