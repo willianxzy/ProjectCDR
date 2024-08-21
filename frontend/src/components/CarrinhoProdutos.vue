@@ -47,18 +47,24 @@
     <button
       class="btn btn-primary m-2"
       type="submit"
-      @click.prevent="salvarProduto"
+      @click="mostrarFormulario"
     >
       <i class="bi bi-clipboard2-check"></i>
       Finalizar Pedido
     </button>
     </div>
+    <!-- Formulário de Dados do Cliente -->
+    <DadosCliente v-if="formularioVisivel" @dadosCliente="finalizarPedido" @cancelar="formularioVisivel = false" />
   </div>
 </template>
   
   <script>
 import axios from "axios";
+import DadosCliente from './DadosCliente.vue';
 export default {
+  components: {
+    DadosCliente,
+  },
   props: {
     produtos: {
       type: Array,
@@ -74,6 +80,7 @@ export default {
       precoUnidadeAtual: "",
       ativo: "",
       isInvalido: false,
+      formularioVisivel: false,
     };
   },
   methods: {
@@ -146,6 +153,28 @@ export default {
       return this.produtos.reduce((total, produto) => {
         return total + (produto.precoUnidadeAtual * produto.quantidade);
       }, 0);
+    },
+    mostrarFormulario() {
+      this.formularioVisivel = true;
+    },
+    finalizarPedido(dadosCliente) {
+      const mensagemProdutos = this.produtos.map((produto) => {
+        return `Produto: ${produto.descricao}\nQuantidade: ${produto.quantidade}\nSubtotal: R$ ${(
+          produto.precoUnidadeAtual * produto.quantidade
+        ).toFixed(2)}`;
+      }).join('\n\n');
+
+      const totalPedido = `Total do Pedido: R$ ${this.calcularTotalPedido().toFixed(2)}`;
+
+      const mensagemCliente = `Nome: ${dadosCliente.nome}\nTelefone: ${dadosCliente.telefone}\nEndereço: ${dadosCliente.endereco}\nCidade: ${dadosCliente.cidade}\nCEP: ${dadosCliente.cep}`;
+
+      const mensagemFinal = `${mensagemCliente}\n\n${mensagemProdutos}\n\n${totalPedido}`;
+
+      const numeroWhatsapp = '5527998270870';
+
+      const url = `https://api.whatsapp.com/send?phone=${numeroWhatsapp}&text=${encodeURIComponent(mensagemFinal)}`;
+
+      window.open(url, '_blank');
     },
     continuarComprando() {
       this.$emit("continuar_comprando");
