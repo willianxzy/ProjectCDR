@@ -21,12 +21,12 @@ import { RouterLink, RouterView } from "vue-router";
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
-        <p>&copy; 2024 Sítio Ana Júlia. Todos os direitos reservados.</p>
-      </div>
-      <div class="footer-right">
         <p> Contato:
           <a href="https://api.whatsapp.com/send/?phone=%2B5527995839399&text&type=phone_number&app_absent=0" target="_blank" class="contact-link"><i class="bi bi-whatsapp">(27) 99583-9399</i></a>
         | <a href="https://www.instagram.com/canto.da.roca/" target="_blank" class="contact-link"><i class="bi bi-instagram">@canto.da.roca</i></a></p>
+      </div>
+      <div class="footer-right">
+        <p>&copy; 2024 Sítio Ana Júlia. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
@@ -183,24 +183,94 @@ main {
   padding-bottom: 120px;
 }
 
-@media (max-width: 1375px) {
-  .logo {
-    margin: 0 2rem 0 0;
-  }
 
+/* Tablets e telas intermediárias */
+@media (max-width: 1024px) {
   img {
     width: 150px;
     height: 150px;
   }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .footer p {
+    font-size: 13px;
+  }
 }
 
+/* Smartphones e telas pequenas */
 @media (max-width: 768px) {
-  .footer-left, .footer-right {
-    flex: 1 1 100%; 
-    text-align: center; 
-    margin-bottom: 10px; 
+  img {
+    width: 100px;
+    height: 100px;
   }
-  .footer p{
+
+  .header {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    width: 768px;
+  }
+
+  .footer-left, .footer-right {
+    text-align: center;
+  }
+
+  .footer p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header{
+    flex-direction: row;
+    text-align: left;
+  }
+  
+  img {
+    width: 80px;
+    height: 80px;
+    margin-left: 10px;
+  }
+
+  nav {
+    padding: 0px;
+    flex-direction: row;
+    width: 430px;
+    gap: 2px;
+  }
+
+  nav a {
+    font-size: 0.8rem;
+    padding: 5px;
+
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    width: 480px;
+  }
+
+  .footer p {
     font-size: 10px;
   }
 }
