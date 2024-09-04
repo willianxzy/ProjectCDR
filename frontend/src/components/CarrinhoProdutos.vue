@@ -94,52 +94,6 @@ export default {
     };
   },
   methods: {
-    async salvarProduto() {
-      if (this.descricao === "") {
-        this.isInvalido = true;
-        return;
-      }
-      this.isInvalido = false;
-
-      if (this.id === "") {
-        //incluir pelo POST da API
-        const response = await axios.post("http://localhost:8080/produto", {
-          id: this.id,
-          descricao: this.descricao,
-          quantidadeEstoque: this.quantidadeEstoque,
-          precoUnidadeAtual: this.precoUnidadeAtual,
-          ativo: this.ativo,
-        });
-        this.listaProdutos = response.data;
-      } else {
-        // alterar pelo PUT da API
-        const response = await axios.put(
-          `http://localhost:8080/produto/${this.id}`,
-          {
-            id: this.id,
-            descricao: this.descricao,
-            quantidadeEstoque: this.quantidadeEstoque,
-            precoUnidadeAtual: this.precoUnidadeAtual,
-            ativo: this.ativo,
-          }
-        );
-        this.listaProdutos = response.data;
-      }
-
-      this.$emit("salvar_produto", {
-        id: this.id,
-        descricao: this.descricao,
-        quantidadeEstoque: this.quantidadeEstoque,
-        precoUnidadeAtual: this.precoUnidadeAtual,
-        ativo: this.ativo,
-      });
-
-      this.id = "";
-      this.descricao = "";
-      this.quantidadeEstoque = "";
-      this.precoUnidadeAtual = "";
-      this.ativo = "";
-    },
     cancelar() {
       this.id = "";
       this.descricao = "";
