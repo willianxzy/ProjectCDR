@@ -25,6 +25,12 @@
       <hr>
     </div>
     <p><strong>Total do Pedido:</strong> R$ {{ calcularTotalPedido().toFixed(2) }}</p>
+    <select>
+      <option value="">Forma de Pagamento</option>
+      <option value="">DINHEIRO</option>
+      <option value="">PIX</option>
+      <option value="">CARTÃO DE CRÉDITO</option>
+    </select>
     </div>
     <div v-else>
       <p>Nenhum produto no carrinho.</p>
