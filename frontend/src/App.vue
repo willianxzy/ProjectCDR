@@ -98,10 +98,12 @@ nav a:first-of-type {
   display: flex;
 
   bottom: 0;
-  position: fixed;
+  position: relative;
   width: 100%;
-
   height: 100px;
+  padding: 20px 0;
+
+  flex-shrink: 0;
 
   color: white;
   background-color: #426B1F;
@@ -123,6 +125,19 @@ nav a:first-of-type {
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.footer-left {
+  flex: 1 1 auto; 
+  text-align: left; 
+}
+
+.footer-right {
+  flex: 0 1 auto; 
+  text-align: right; 
+  margin-bottom: 10px;
 }
 
 .footer-right a {
@@ -134,6 +149,7 @@ nav a:first-of-type {
 
 .footer-right p{
   font-size: 18px;
+  margin: 0;
 }
 
 .bi.bi-whatsapp::before {
@@ -163,7 +179,11 @@ nav a:first-of-type {
     margin-right: 5px;
 }
 
-@media (max-width: 1024px) {
+main {
+  padding-bottom: 120px;
+}
+
+@media (max-width: 1375px) {
   .logo {
     margin: 0 2rem 0 0;
   }
@@ -171,6 +191,14 @@ nav a:first-of-type {
   img {
     width: 150px;
     height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-left, .footer-right {
+    flex: 1 1 100%; 
+    text-align: center; 
+    margin-bottom: 10px; 
   }
 }
 </style>
