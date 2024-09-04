@@ -15,7 +15,7 @@ defineProps({
   <div>
     <h1 class="cor">{{ msg }}</h1>
     <h2 class="cor">{{ msg2 }}</h2>
-    <div><img src="../assets/LogoCDR.png" alt=""></div>
+    <div><img src="../assets/logoCDR.png"></div>
     
   </div>
 </template>
