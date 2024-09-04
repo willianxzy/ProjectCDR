@@ -1,23 +1,10 @@
 <script setup>
 defineProps({
-  msg: {
-    type: String,
-    required: true
-  },
-  msg2: {
-    type: String,
-    required: true
-  }
 })
 </script>
 
 <template>
-  <div>
-    <h1 class="cor">{{ msg }}</h1>
-    <h2 class="cor">{{ msg2 }}</h2>
-    <div><img src="../assets/logoCDR.png"></div>
-    
-  </div>
+  <div></div>
 </template>
 
 <style scoped>
