@@ -240,18 +240,14 @@ main {
 }
 
 @media (max-width: 480px) {
-  .template {
-    width: 480px;
-  }
-
   header{
-    width: 480px;
+    width: auto;
     flex-direction: row;
     text-align: left;
   }
 
   main{
-    width: 480px;
+    width: auto;
   }
   
   img {
@@ -263,7 +259,7 @@ main {
   nav {
     padding: 0px;
     flex-direction: row;
-    width: 430px;
+    width: auto;
     gap: 2px;
   }
 
@@ -276,7 +272,7 @@ main {
   .footer {
     flex-direction: column;
     text-align: center;
-    width: 480px;
+    width: auto;
   }
 
   .footer p {
