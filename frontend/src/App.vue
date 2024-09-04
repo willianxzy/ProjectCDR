@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <header>
     <div class="header">
-      <img src="./assets/LogoCDR.png" alt="" />
+      <img src="./assets/logoCDR.png">
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">Sobre</RouterLink>
