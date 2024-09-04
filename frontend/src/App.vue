@@ -200,5 +200,8 @@ main {
     text-align: center; 
     margin-bottom: 10px; 
   }
+  .footer p{
+    font-size: 10px;
+  }
 }
 </style>
