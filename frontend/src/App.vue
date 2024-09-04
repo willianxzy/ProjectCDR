@@ -240,9 +240,18 @@ main {
 }
 
 @media (max-width: 480px) {
-  .header{
+  .template {
+    width: 480px;
+  }
+
+  header{
+    width: 480px;
     flex-direction: row;
     text-align: left;
+  }
+
+  main{
+    width: 480px;
   }
   
   img {
