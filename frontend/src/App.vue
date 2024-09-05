@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <header>
     <div class="header">
-      <img src="./assets/logoCDR.png">
+      <img src="./assets/logoCDR.png"/>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">Sobre</RouterLink>
@@ -21,9 +21,22 @@ import { RouterLink, RouterView } from "vue-router";
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
-        <p> Contato:
-          <a href="https://api.whatsapp.com/send/?phone=%2B5527995839399&text&type=phone_number&app_absent=0" target="_blank" class="contact-link"><i class="bi bi-whatsapp">(27) 99583-9399</i></a>
-        | <a href="https://www.instagram.com/canto.da.roca/" target="_blank" class="contact-link"><i class="bi bi-instagram">@canto.da.roca</i></a></p>
+        <p>
+          Contato:
+          <a
+            href="https://api.whatsapp.com/send/?phone=%2B5527995839399&text&type=phone_number&app_absent=0"
+            target="_blank"
+            class="contact-link"
+            ><i class="bi bi-whatsapp">(27) 99583-9399</i></a
+          >
+          |
+          <a
+            href="https://www.instagram.com/canto.da.roca/"
+            target="_blank"
+            class="contact-link"
+            ><i class="bi bi-instagram">@canto.da.roca</i></a
+          >
+        </p>
       </div>
       <div class="footer-right">
         <p>&copy; 2024 Sítio Ana Júlia. Todos os direitos reservados.</p>
@@ -71,12 +84,12 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  background-color: #426B1F;
+  background-color: #426b1f;
   color: white;
 }
 
 nav a.router-link-exact-active:hover {
-  background-color: #426B1F;
+  background-color: #426b1f;
   color: white;
 }
 
@@ -106,7 +119,7 @@ nav a:first-of-type {
   flex-shrink: 0;
 
   color: white;
-  background-color: #426B1F;
+  background-color: #426b1f;
 }
 
 .footer p {
@@ -121,33 +134,32 @@ nav a:first-of-type {
 }
 
 .footer-content {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 20px;
 }
 
 .footer-left {
-  flex: 1 1 auto; 
-  text-align: left; 
+  flex: 1 1 auto;
+  text-align: left;
 }
 
 .footer-right {
-  flex: 0 1 auto; 
-  text-align: right; 
+  flex: 0 1 auto;
+  text-align: right;
   margin-bottom: 10px;
 }
 
 .footer-right a {
-
   border-radius: 5px;
   padding: 2px;
   color: white;
 }
 
-.footer-right p{
+.footer-right p {
   font-size: 18px;
   margin: 0;
 }
@@ -162,27 +174,26 @@ nav a:first-of-type {
 }
 
 .contact-link {
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 5px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .contact-link:hover {
-    background-color: #fff;
-    color: #4CAF50;
+  background-color: #fff;
+  color: #4caf50;
 }
 
 .contact-link i {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 main {
   padding-bottom: 120px;
 }
-
 
 /* Tablets e telas intermediárias */
 @media (max-width: 1024px) {
@@ -230,7 +241,8 @@ main {
     width: 768px;
   }
 
-  .footer-left, .footer-right {
+  .footer-left,
+  .footer-right {
     text-align: center;
   }
 
@@ -240,20 +252,21 @@ main {
 }
 
 @media (max-width: 480px) {
-  header{
+  header {
     width: auto;
     flex-direction: row;
     text-align: left;
   }
 
-  main{
+  main {
     width: auto;
   }
-  
+
   img {
     width: 80px;
     height: 80px;
     margin-left: 10px;
+    margin-right: 120px;
   }
 
   nav {
@@ -266,7 +279,6 @@ main {
   nav a {
     font-size: 0.8rem;
     padding: 5px;
-
   }
 
   .footer {
