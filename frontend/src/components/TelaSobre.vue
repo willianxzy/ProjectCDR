@@ -73,4 +73,24 @@ import DocumentationIcon from "./icons/IconDocumentation.vue";
     flex: 1;
     margin-right: 300px;
   }
+
+    /* Telas médias (tablets) */
+@media (max-width: 1024px) {
+  body{
+    min-width: auto;
+    width: auto;
+  }
+}
+/* Telas pequenas (smartphones) */
+@media (max-width: 768px) {
+  body{
+    min-width: auto;
+    width: auto;
+  }
+}
+
+/* Ajustes para telas extra pequenas (até 480px) */
+@media (max-width: 480px) {
+  
+}
 </style>
