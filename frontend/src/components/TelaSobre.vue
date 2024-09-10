@@ -108,6 +108,7 @@ import DocumentationIcon from "./icons/IconDocumentation.vue";
 
   .content-left {
     margin-right: 0px;
+    margin-bottom: 70px;
   }
 
   .content-right img {
