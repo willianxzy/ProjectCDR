@@ -91,6 +91,30 @@ import DocumentationIcon from "./icons/IconDocumentation.vue";
 
 /* Ajustes para telas extra pequenas (até 480px) */
 @media (max-width: 480px) {
+  body{
+    min-width: auto;
+    width: auto;
+  }
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    
+    height: auto;
+    width: 480px;
+
+    margin: 0px 30px 0px 30px;
+  }
+
+  .content-left {
+    margin-right: 0px;
+  }
+
+  .content-right img {
+    display: flex;
+    position: relative;
+    margin-right: 0px;
+  }
   
 }
 </style>
