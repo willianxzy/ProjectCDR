@@ -34,19 +34,19 @@
           class="col-md-4 mb-3"
         >
           <div class="card h-100 text-center">
-            <img
+            <!-- <img
               :src="getImagemUrl(produto.imagemProduto)"
               class="card-img-top"
               width="100px"
               height="300px"
-            />
+            /> -->
             <div class="card-body">
               <h5 class="card-title">{{ produto.descricao }}</h5>
-              <p class="card-text">
+              <!-- <p class="card-text">
                 Valor: R$ {{ produto.precoUnidadeAtual.toFixed(2) }}
                 <br />
                 {{ produto.informacoes }}
-              </p>
+              </p> -->
               <button
                 class="btn btn-primary"
                 @click="adicionarAoCarrinho(produto)"

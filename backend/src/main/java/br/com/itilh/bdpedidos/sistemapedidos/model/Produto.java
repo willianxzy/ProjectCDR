@@ -39,6 +39,6 @@ public class Produto {
     @Column(name = "tx_informacoes")
     private String informacoes;
 
-    @Column(name = "product_img")
-    private byte[] imagemProduto;
+    // @Column(name = "product_img")
+    // private byte[] imagemProduto;
 }
